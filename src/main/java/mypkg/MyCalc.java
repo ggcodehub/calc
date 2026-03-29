@@ -23,7 +23,7 @@ public class MyCalc {
 	}
 	public void greeting()
 	{
-		System.out.println("Hello SL");
+		System.out.println("Hello SL Thanks Hitesh");
 	}
 
 	public static void main(String[] args) {
