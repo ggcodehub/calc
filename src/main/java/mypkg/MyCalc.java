@@ -17,7 +17,7 @@ public class MyCalc {
 	{
 		return a/b;
 	}
-	public void show()
+	public void show()s
 	{
 		System.out.println("Hello Jenkins from SL 1 NOV BATCH! Thanks GitHub Action Thanks Subghsish");
 	}
