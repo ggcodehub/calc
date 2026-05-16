@@ -34,7 +34,6 @@ public class MyCalc {
 		System.out.println("Div is: "+calc.div(20, 10));
 		calc.show();
 		calc.greeting();
-		System.out.println("Successful");
 
 	}
 
