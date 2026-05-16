@@ -2,50 +2,27 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
-    }
-
-    environment {
-        IMAGE_NAME = "hkshitesh/cicdimg"
+        maven 'MAVEN_HOME'
     }
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Welcome Stage') {
             steps {
-                git 'https://github.com/hkshitesh/SL-MAVEN-8-FEB-BACTH.git'
+                echo 'Welcome to Pipeline'
             }
         }
 
-        stage('Build Maven Project') {
+        stage('Clean Stage') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean'
             }
         }
 
-        stage('Build Docker Image') {
+		stage('Install Maven Project') {
             steps {
-                sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
+                sh 'mvn install'
             }
         }
 
-        stage('DockerHub Login') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                sh 'docker push $IMAGE_NAME:$BUILD_NUMBER'
-            }
-        }
-    }
-}
+    
