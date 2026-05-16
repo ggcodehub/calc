@@ -9,6 +9,10 @@ public class MyCalc {
 	{
 		return a-b;
 	}
+	public int mul(int a, int b)
+	{
+		return a*b;
+	}
 	public int div(int a, int b)
 	{
 		return a/b;
@@ -26,6 +30,7 @@ public class MyCalc {
 		MyCalc calc = new MyCalc();
 		System.out.println("Sum is: "+calc.sum(20, 10));
 		System.out.println("Diff is: "+calc.diff(20, 10));
+		System.out.println("Multiply is: "+calc.mul(20, 10));
 		System.out.println("Div is: "+calc.div(20, 10));
 		calc.show();
 		calc.greeting();
